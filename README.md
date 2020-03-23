@@ -8,6 +8,6 @@ Discordの異なるサーバーのチャンネルの発言をリアルタイム�
 2. __init__.py に、BOT TOKEN, 連結本部サーバーのID, 管理者コマンドの実行チャンネルのID, 本部用中継カテゴリのIDを記入します。
 
 必要動作環境
-  python3.8 (python3.7以上)
-  Discord.py 1.3
-  requests 2.13.0 (これ以上のバージョンでは誤動作の可能性があります。)
+  python3.8 (python3.7以上)  
+  Discord.py 1.3  
+  requests 2.13.0 (これ以上のバージョンでは誤動作の可能性があります。)  
