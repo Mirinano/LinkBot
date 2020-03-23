@@ -69,7 +69,7 @@ class Link():
         data = {
             "username" : "{}[{}]".format(msg.author.name, msg.channel.guild.name),
             "avatar_url" : msg.author.avatar_url,
-            "content" : msg.content
+            "content" : self.invalid_mention(msg)
         }
         if len(msg.attachments) > 0:
             data["embeds"] = list()
@@ -78,6 +78,15 @@ class Link():
                 em.set_image(url=attach.url)
                 data["embeds"].append(em)
         return data
+    
+    def invalid_mention(self, msg:discord.Message) -> str:
+        text = msg.content
+        #@everyone, @here
+        text = text.replace("@everyone", "`@everyone`")
+        text = text.replace("@here", "`@here`")
+        for member in msg.mentions:
+            text = text.replace("<@!{}>".format(member.id), member.name)
+        return text
 
     def create_join_content(self, server:discord.Guild, unit:str, servers:list) -> dict:
         data = {
